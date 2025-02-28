@@ -22,6 +22,9 @@ result_df = filtered_df.iloc[:, [2]].copy()  # Selecting only column C
 # Rename the column for clarity
 result_df.columns = ["BCCID"]
 
+# Remove duplicate BCCIDs
+result_df = result_df.drop_duplicates(subset=["BCCID"])
+
 # Ensure leading zeros are retained
 result_df["BCCID"] = result_df["BCCID"].astype(str)
 
